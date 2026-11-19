@@ -30,9 +30,23 @@ tools/
 
 ## 공개(배포)
 
-`website` 폴더를 통째로 GitHub Pages, Netlify, Vercel 같은 정적 호스팅에 올리면 돼요. 공개 주소가 생기면 그 주소로 QR코드를 만들어요.
+GitHub Pages로 공개돼 있어요.
 
-포스터용 링크 예시:
+- 사이트: https://alsdud8290-crypto.github.io/suwon-medicine-map/
+- 저장소: https://github.com/alsdud8290-crypto/suwon-medicine-map
+
+수정한 뒤 다시 올릴 때는 `website` 폴더에서 아래처럼 실행해요. 1~2분 뒤 사이트에 반영돼요.
+
+```
+git add -A
+git commit -m "수정 내용"
+git push
+```
+
+원본 엑셀·CSV와 `tools` 폴더는 저장소에 올리지 않아요(엑셀에 담당자 이름·연락처가 있어요).
+
+포스터용 링크 예시 (QR코드는 이 주소로 만들어요):
+- 첫 화면: `https://alsdud8290-crypto.github.io/suwon-medicine-map/`
 - 약국만 보기: `…/?type=pharmacy`
 - 영통구만 보기: `…/?gu=영통구`
 - 특정 장소 바로 열기: `…/#p=번호` (장소를 누르면 주소창에 번호가 표시돼요)
