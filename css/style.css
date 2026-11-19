@@ -720,7 +720,8 @@ dialog.info::backdrop { background: rgba(14,47,31,.45); }
   .side-card { grid-template-columns: 1fr; text-align: left; padding: 26px 22px; }
   .side-card img { grid-row: auto; width: 100px; margin: 0 0 10px; }
   .big b { font-size: 46px; }
-  .foot-inner { grid-template-columns: 1fr; text-align: center; }
+  .foot-inner { grid-template-columns: 1fr; text-align: center; padding-top: 36px; gap: 18px; }
+  .foot-logo { line-height: 1.45; }
   .foot-nav { justify-content: center; order: 2; }
   .foot-logo { order: 1; }
   .foot-info { order: 3; text-align: center; }
