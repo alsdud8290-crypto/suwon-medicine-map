@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140"><defs><filter id="g" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.28 0" result="na"/><feComposite in="na" in2="SourceGraphic" operator="in" result="ni"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ni"/></feMerge></filter></defs><g filter="url(#g)">
+<path d="M30 120C46 78 70 50 112 24" stroke="#1f6e45" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M70 66c-30-6-48 8-52 30 26 6 46-6 52-30z" fill="#2e8f5c"/>
+<path d="M88 46c2-28 22-40 44-38-2 26-20 40-44 38z" fill="#46a96f"/>
+<path d="M56 88c-6 24 4 40 24 44 6-22-4-38-24-44z" fill="#3b9a62"/>
+<path d="M66 70c-16 2-28 10-36 20M94 44c10-10 22-18 32-26" stroke="#1f6e45" stroke-width="2" fill="none" opacity=".6"/>
+</g></svg>

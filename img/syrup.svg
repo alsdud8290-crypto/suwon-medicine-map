@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 230" width="140" height="230"><defs><filter id="g" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.28 0" result="na"/><feComposite in="na" in2="SourceGraphic" operator="in" result="ni"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ni"/></feMerge></filter></defs><g filter="url(#g)">
+<rect x="44" y="12" width="52" height="34" rx="6" fill="#1f6e45"/>
+<rect x="44" y="12" width="52" height="10" rx="5" fill="#2e8f5c"/>
+<path d="M50 46h40v16c18 8 30 22 30 42v96a18 18 0 0 1-18 18H38a18 18 0 0 1-18-18v-96c0-20 12-34 30-42z" fill="#c9722b"/>
+<path d="M20 120h100v80a18 18 0 0 1-18 18H38a18 18 0 0 1-18-18z" fill="#a95a1d"/>
+<rect x="30" y="104" width="80" height="66" rx="8" fill="#fff3d8"/>
+<path d="M70 120c-14 6-18 18-12 30 12-2 20-12 12-30z" fill="#2e8f5c"/>
+<path d="M62 146l10-16" stroke="#1f6e45" stroke-width="2" stroke-linecap="round"/>
+<path d="M42 158h56" stroke="#e1c99a" stroke-width="4" stroke-linecap="round"/>
+<path d="M34 76c4-6 10-10 16-12" stroke="#f0b27a" stroke-width="6" stroke-linecap="round"/>
+</g></svg>

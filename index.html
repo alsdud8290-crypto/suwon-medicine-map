@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cut">
+<title>수원시 폐의약품 수거지도</title>
+<meta name="description" content="수원시 폐의약품 수거함·보건소·수거 약국 위치와 올바른 배출 방법을 안내해요.">
+<meta name="theme-color" content="#ffd268">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffd268'/%3E%3Cg transform='rotate(-45 32 32)'%3E%3Crect x='12' y='22' width='40' height='20' rx='10' fill='%23fff8e7' stroke='%2313492d' stroke-width='3'/%3E%3Cpath d='M32 22H22a10 10 0 0 0 0 20h10z' fill='%232e8f5c' stroke='%2313492d' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="수원시 폐의약품 수거지도">
+<meta property="og:description" content="서랍 속 안 먹는 약, 어디에 버릴까요? 수원시 수거함·보건소·약국 위치와 배출 방법을 찾아보세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Lora:ital,wght@1,600&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="mast" id="top">
+  <div class="mast-row1">
+    <div class="wrap mast-inner">
+      <a class="logo" href="#top">수원시 폐의약품 수거지도</a>
+      <nav class="mast-nav" aria-label="주요 메뉴">
+        <a href="#why">왜 따로 버릴까</a>
+        <a href="#guide">배출 방법</a>
+        <a href="#data">출처</a>
+      </nav>
+    </div>
+  </div>
+  <div class="mast-row2">
+    <div class="wrap mast-inner">
+      <ul class="mast-info">
+        <li>수거처 <b data-stat="all"></b>곳</li>
+        <li>수원시 4개 구 · 44개 동</li>
+        <li>자료 기준 <b id="heroDate"></b></li>
+      </ul>
+      <a class="pill pill-ink" href="#finder">수거처 지도 바로가기</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="hero-eyebrow">SUWON · WASTE MEDICINE GUIDE</p>
+    <h1>서랍 속 그 약<span class="h1-comma">,</span><br>어디에 버리세요?</h1>
+    <p class="hero-sub">변기나 싱크대로 버린 약은 하천과 흙으로 흘러갈 수 있어요. <br>수원시 수거함·보건소·약국 <b data-stat="all"></b>곳 중 가까운 곳을 찾아보세요.</p>
+
+    <form class="hero-search" id="heroSearch" role="search">
+      <i class="ph-bold ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="heroQ" type="search" placeholder="동네나 아파트 이름 (예: 매탄동)" aria-label="수거처 검색" enterkeyhint="search">
+      <button type="submit">찾기</button>
+    </form>
+    <div class="quick">
+      <button type="button" class="q-map" data-go="map"><i class="ph-fill ph-map-trifold"></i>지도에서 수거함 찾기</button>
+      <button type="button" class="q-near" data-go="near"><i class="ph-fill ph-navigation-arrow"></i>내 주변 수거처</button>
+      <button type="button" data-go="box"><i class="ph-fill ph-archive-box"></i>수거함 <b data-stat="box"></b></button>
+      <button type="button" data-go="health"><i class="ph-fill ph-first-aid"></i>보건소 <b data-stat="health"></b></button>
+      <button type="button" data-go="pharmacy"><i class="ph-fill ph-pill"></i>약국 <b data-stat="pharmacy"></b></button>
+    </div>
+
+
+    <div class="hero-art">
+      <div class="grid-paper" aria-hidden="true"></div>
+      <a class="a-map" href="#finder" id="heroMap" aria-label="수거처 지도 열기">
+        <img src="img/map.svg" alt="">
+        <span class="map-tag">지도 열기 <i class="ph-bold ph-arrow-right"></i></span>
+      </a>
+      <img class="a a-capsule" src="img/capsule.svg" alt="">
+      <img class="a a-syrup" src="img/syrup.svg" alt="">
+      <img class="a a-tube" src="img/tube.svg" alt="">
+      <img class="a a-powder" src="img/powder.svg" alt="">
+      <img class="a a-pill1" src="img/pill-white.svg" alt="">
+      <img class="a a-pill2" src="img/pill-yellow.svg" alt="">
+      <img class="a a-pill3" src="img/pill-white.svg" alt="">
+      <img class="a a-leaf" src="img/leaf.svg" alt="">
+      <span class="tag-label t-capsule" aria-hidden="true">Capsule</span>
+      <span class="tag-label t-syrup" aria-hidden="true">Syrup</span>
+      <span class="tag-label t-tube" aria-hidden="true">Ointment</span>
+      <span class="tag-label t-powder" aria-hidden="true">Powder</span>
+    </div>
+
+    <p class="hero-statement">가까운 수거함에 넣기만 해도 약 성분이 하천으로 흘러가는 걸 막을 수 있어요.</p>
+
+    <ul class="gu-stamps" id="heroBars" aria-label="구별 수거처 수"></ul>
+  </div>
+</section>
+
+<section class="band band-water">
+  <div class="wrap band-inner center">
+    <h2>물 내리면 끝?<br>약은 아니에요</h2>
+    <p>하수처리를 거쳐도 약 성분이 모두 걸러지지는 않아요. <br>남은 약은 따로 모아 소각해야 물과 흙으로 새어 나가지 않아요.</p>
+    <a class="pill pill-sun" href="#why">왜 따로 버려야 할까요?</a>
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="feature">
+      <div class="feature-art">
+        <div class="tilt-card"><img src="img/river.svg" alt="하수구에서 흘러나온 약이 강물 속 물고기 곁을 떠다니는 그림"></div>
+        <span class="sticker">Why?</span>
+      </div>
+      <div class="feature-copy">
+        <p class="num">01</p>
+        <h2>그냥 버리면<br>안 되는 이유</h2>
+        <p class="lede">몸속에서 작용하도록 만든 화학물질이기 때문이에요</p>
+        <p>변기나 싱크대로 버린 약은 그 성분이 물과 흙으로 흘러갈 수 있어요. 아주 적은 양이라도 물속 생물이 계속 노출되면 생태계에 영향을 줄 수 있어요.</p>
+      </div>
+    </div>
+
+    <div class="flows">
+      <div class="flow bad">
+        <span class="flow-tag"><i class="ph-bold ph-x"></i>잘못 버리면</span>
+        <ol>
+          <li><i class="ph ph-toilet"></i><b>변기·싱크대</b><span>남은 약을 물에 흘려보내요</span></li>
+          <li><i class="ph ph-factory"></i><b>하수처리장</b><span>일부 성분은 완전히 제거되지 않아요</span></li>
+          <li><i class="ph ph-waves"></i><b>하천·호수</b><span>남은 성분이 물로 흘러가요</span></li>
+          <li><i class="ph ph-fish"></i><b>물속 생물</b><span>약 성분에 계속 노출돼요</span></li>
+        </ol>
+        <p class="flow-note">일반 쓰레기통 등에 무분별하게 버려도 “토양과 수질오염은 물론 생태계 교란까지 초래할 수 있습니다.” <cite>환경재단, 2025</cite></p>
+      </div>
+      <div class="flow good">
+        <span class="flow-tag"><i class="ph-bold ph-check"></i>올바르게 버리면</span>
+        <ol>
+          <li><i class="ph ph-archive-box"></i><b>수거함·약국·보건소</b><span>제형별로 준비해서 넣어요</span></li>
+          <li><i class="ph ph-truck"></i><b>따로 회수</b><span>일반 쓰레기와 섞이지 않아요</span></li>
+          <li><i class="ph ph-fire"></i><b>소각 처리</b><span>수원시는 모두 소각해요</span></li>
+          <li><i class="ph ph-plant"></i><b>환경 보호</b><span>약 성분이 물·흙으로 새지 않아요</span></li>
+        </ol>
+        <p class="flow-note">“수원시는 현재 폐의약품을 모두 소각하여 처리하고 있습니다.” <cite>수원시보건소, 2024.06</cite></p>
+      </div>
+    </div>
+
+    <div class="facts">
+      <article class="fact">
+        <span class="src-tag">서울물연구원 · 2025년 연구</span>
+        <h3>한강 물에서 나온<br>약 성분 13가지</h3>
+        <p class="fact-stat"><b>13</b><span>/ 55개 항목</span></p>
+        <p class="fact-cap">한강 취수원수를 5년간 조사해 검출된 잔류의약물질 수</p>
+        <blockquote>하수처리 공정을 거쳐도 완전히 제거되지 않은 일부 잔류의약물질이 하천·호소 등 상수원으로 유입</blockquote>
+        <p class="fact-note">정수처리 후에는 3개 항목만 검출됐고, 수돗물의 인체 위해 가능성은 매우 낮다고 평가됐어요. 수돗물은 관리되고 있지만, 약 성분이 강까지 들어온다는 뜻이에요.</p>
+      </article>
+      <article class="fact">
+        <span class="src-tag">국립환경과학원 · 2026.10</span>
+        <h3>아주 적은 양이어도<br>생태계에 영향을 줄 수 있어요</h3>
+        <p class="fact-cap">국립환경과학원은 의약품 같은 미량오염물질을 이렇게 설명해요.</p>
+        <blockquote>수중에 극미량으로 존재하지만 생태계와 인체 건강에 잠재적인 영향을 줄 수 있는 물질</blockquote>
+        <p class="fact-note">국립환경과학원은 미호강 유역의 물·퇴적물·부유물질에서 농약류와 의약물질이 어떻게 분포하는지 조사하고 있어요.</p>
+      </article>
+      <article class="fact">
+        <span class="src-tag">환경재단 설문 · 2025 · 4,068명</span>
+        <h3>약을 버려 본 사람,<br>둘 중 하나는 헷갈렸어요</h3>
+        <p class="fact-stat"><b>48.4%</b></p>
+        <p class="fact-cap">최근 1년 안에 약을 버린 2,264명 중 수거함이 아닌 곳에 버리거나 보관한 비율</p>
+        <ul class="fact-list">
+          <li><span>종량제 봉투</span><b>32.9%</b></li>
+          <li><span>싱크대·변기</span><b>7.0%</b></li>
+          <li><span>집에 계속 보관</span><b>4.9%</b></li>
+          <li><span>재활용품 수거함</span><b>3.6%</b></li>
+        </ul>
+        <p class="fact-note">종량제 봉투는 수원시처럼 소각용 봉투 배출을 안내하는 지자체도 있어요. 다른 지역에서는 대부분 맞지 않는 방법이에요.</p>
+      </article>
+    </div>
+
+    <div class="why-bottom">
+      <div class="reasons">
+        <h3>수거함까지 안 가게 되는 이유</h3>
+        <p class="sub">잘못 버리거나 보관한 1,096명 응답 · 환경재단 2025</p>
+        <ul class="hbars">
+          <li><span>수거함이 멀거나 시간이 없어서</span><i style="--w:30.9%"></i><b>30.9%</b></li>
+          <li><span>버리는 방법을 정확히 몰라서</span><i style="--w:28.9%"></i><b>28.9%</b></li>
+          <li><span>수거함이 어디 있는지 몰라서</span><i style="--w:24.0%"></i><b>24.0%</b></li>
+        </ul>
+        <p class="reasons-cta">수거함 위치를 지도로 볼 수 있다면 이용하겠다는 응답은 <b>88%</b>였어요. <a href="#finder">가까운 수거처 찾기 <i class="ph-bold ph-arrow-right"></i></a></p>
+      </div>
+      <div class="trend">
+        <h3>전국 폐의약품 수거량</h3>
+        <p class="sub">환경부 설명자료(2024.09.24) · 단위 톤</p>
+        <ul class="vbars">
+          <li><b>387</b><i style="--h:54%"></i><span>2020</span></li>
+          <li><b>415</b><i style="--h:58%"></i><span>2021</span></li>
+          <li><b>487</b><i style="--h:68%"></i><span>2022</span></li>
+          <li class="hi"><b>713</b><i style="--h:100%"></i><span>2023</span></li>
+        </ul>
+        <p class="trend-note">수거 거점을 늘리고 수거 방식을 다양화하면서 수거량이 크게 늘었다고 해요(환경부).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-guide" id="guide">
+  <div class="wrap">
+    <div class="sec-title">
+      <p class="num">02</p>
+      <h2>버리기 전에<br>이것만 기억하세요</h2>
+      <p class="lede">수원시보건소와 동 행정복지센터의 공식 안내를 옮겼어요</p>
+      <p class="desc">수원시보건소 「수원시 폐의약품 처리 관련 안내」(2024.06)와 동 행정복지센터 수거함 안내(2024.10~11) 기준이에요. 수거함에 붙은 안내가 다르면 그 안내를 따라 주세요.</p>
+    </div>
+    <ol class="tiles">
+      <li>
+        <div class="tile-art t1"><img src="img/blister.svg" alt=""></div>
+        <h3>알약·캡슐</h3>
+        <p>약봉지(포장지)와 분리한 뒤 <b>약만</b> 모아요.</p>
+      </li>
+      <li>
+        <div class="tile-art t2"><img src="img/powder.svg" alt=""></div>
+        <h3>가루약</h3>
+        <p>약봉지를 <b>뜯지 않고 그대로</b> 모아요.</p>
+      </li>
+      <li>
+        <div class="tile-art t3"><img src="img/syrup.svg" alt=""></div>
+        <h3>물약·시럽</h3>
+        <p>휴지(티슈) 등에 <b>적셔서</b> 배출해요.</p>
+      </li>
+      <li>
+        <div class="tile-art t4"><img src="img/tube.svg" alt=""></div>
+        <h3>안약·연고</h3>
+        <p>내용물을 따로 짜지 말고 <b>그대로</b> 넣어요.</p>
+      </li>
+    </ol>
+    <div class="guide-tips">
+      <p><b class="ok"><i class="ph-bold ph-recycle"></i>따로 분리해요</b>플라스틱 약통과 종이 상자는 재활용품으로 분리배출해요. 약봉투에 적힌 이름 같은 개인정보도 확인하세요.</p>
+      <p><b class="no"><i class="ph-bold ph-prohibit"></i>넣으면 안 돼요</b>일반 쓰레기 · 건강보조식품 · 에너지드링크 · 의료기기 등</p>
+    </div>
+
+    <h3 class="sub-title">어디로 들고 가면 될까요?</h3>
+    <div class="where">
+      <article>
+        <span class="w-ico"><i class="ph-fill ph-archive-box"></i></span>
+        <h4>수거함 <em>추천</em></h4>
+        <p>구 보건소, 동 행정복지센터, 일부 아파트 단지에 있어요. 수원시는 “4개 보건소 및 44개 동 행정복지센터” 수거함을 안내해요.</p>
+        <button type="button" class="pill pill-line" data-go="box">지도에서 수거함 보기</button>
+      </article>
+      <article>
+        <span class="w-ico ph-ico"><i class="ph-fill ph-pill"></i></span>
+        <h4>수거 협력 약국</h4>
+        <p>약국마다 받는 품목이 달라요. 자료상 10곳 중 5곳은 마약류만 받아요. 약국별 품목은 지도에서 확인하세요.</p>
+        <button type="button" class="pill pill-line" data-go="pharmacy">지도에서 약국 보기</button>
+      </article>
+      <article class="dim">
+        <span class="w-ico bag-ico"><i class="ph-fill ph-trash"></i></span>
+        <h4>소각용 종량제 봉투</h4>
+        <p>수원시보건소는 위 방법대로 준비해 소각용 종량제 봉투에 배출하는 방법도 안내해요(2024.06 기준). 다른 지역에서는 대부분 안 되는 방법이고, 2024년 안내라 지금도 같은 기준인지는 수원시보건소에 확인하세요.</p>
+      </article>
+    </div>
+
+    <details class="compare">
+      <summary><b>이사 왔다면 꼭 보세요</b><span>서울은 포장째, 수원은 알맹이만. 지역마다 달라요</span></summary>
+      <p class="compare-tip"><b>수원시는 일반 쓰레기 종량제 봉투에 버려도 돼요.</b> 수원시보건소는 알약·가루약·물약·안약·연고를 위처럼 준비해 <b>소각용 종량제 봉투</b>에 버리는 방법도 안내해요. 수원시는 폐의약품을 모두 소각하기 때문이에요(2024.06 기준). 아래 다른 지역은 종량제 봉투가 아니라 수거함에 넣으라고 안내해요.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>지역 <small>안내 시점</small></th><th>종량제 봉투</th><th>우체통</th><th>알약</th><th>가루약</th><th>물약·시럽</th></tr></thead>
+          <tbody>
+            <tr class="me"><th>수원시 <small>2024</small></th><td><b class="v ok">가능</b>소각용 봉투에</td><td><b class="v na">안내 없음</b>수거함 이용</td><td><b class="v">알맹이만</b>포장 벗겨서</td><td><b class="v">포장째</b>뜯지 않고</td><td><b class="v">휴지에 적셔서</b>종량제 봉투로</td></tr>
+            <tr><th>서울특별시 <small>2025.09</small></th><td><b class="v no">안 돼요</b>'부적절한 배출'로 안내</td><td><b class="v ok">가능</b>알약·가루약만, 물약 불가</td><td><b class="v">포장째</b>포장·밀봉 그대로</td><td><b class="v">포장째</b>포장·밀봉 그대로</td><td><b class="v">용기째</b>마개 닫아서</td></tr>
+            <tr><th>인천 검단구 <small>2026.08</small></th><td><b class="v">수거함만</b>종량제 언급 없음</td><td><b class="v na">안내 없음</b>수거함 이용</td><td><b class="v">포장째</b>PTP 포장 그대로</td><td><b class="v">포장째</b>약포지 그대로</td><td><b class="v">용기째</b>마개 잠가서</td></tr>
+            <tr><th>부산광역시 <small>2026.05</small></th><td><b class="v no">안 돼요</b>홍보물에 쓰레기통 ✕</td><td><b class="v na">안내 없음</b>수거함 이용</td><td><b class="v">알맹이만</b>포장 벗겨서</td><td><b class="v">포장째</b>뜯지 않고</td><td><b class="v">한 병에 모아서</b>새지 않게 밀봉</td></tr>
+            <tr><th>경기 광주시 <small>2026.11</small></th><td><b class="v">수거함만</b>종량제 언급 없음</td><td><b class="v na">안내 없음</b>수거함 이용</td><td><b class="v">알맹이만</b>비닐·종이·PTP 벗겨서</td><td><b class="v">포장째</b>뜯지 않고</td><td><b class="v">한 통에 모아서</b>플라스틱 용기에</td></tr>
+            <tr><th>대전 동구 <small>2026.10</small></th><td><b class="v">수거함만</b>영양제만 일반쓰레기</td><td><b class="v na">안내 없음</b>수거함 이용</td><td><b class="v">포장째</b>포장지 그대로</td><td><b class="v">포장째</b>포장지 그대로</td><td><b class="v">용기째</b>뚜껑 닫아서, 유리병 제외</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-note">우체통은 우체국과 폐의약품 회수 사업을 하는 지역에서만 쓸 수 있어요. 더 정확한 최신 기준은 각 지역의 안내를 확인하세요.</p>
+    </details>
+  </div>
+</section>
+
+<section class="sec finder" id="finder">
+  <div class="wrap">
+    <div class="sec-title">
+      <p class="num">03</p>
+      <h2>우리 동네 수거함 찾기</h2>
+      <p class="lede">구 색깔로 구분했어요. 지도에서 구를 누르면 그 구만 보여요</p>
+      <p class="desc">장소를 누르면 주소, 세부 위치, 수거 품목, 이용 시간, 정보 출처와 확인 상태를 볼 수 있어요.</p>
+    </div>
+  </div>
+<div class="app" id="app" data-view="map">
+
+  <aside class="panel" id="panel">
+    <header class="top">
+      <strong class="panel-title">수원시 수거처 <span data-stat="all"></span>곳</strong>
+      <button class="icon-btn" id="infoBtn" type="button" aria-label="자료 출처와 안내"><i class="ph ph-info"></i></button>
+    </header>
+
+    <div class="search">
+      <i class="ph ph-magnifying-glass search-ico" aria-hidden="true"></i>
+      <input id="q" type="search" placeholder="장소명, 동, 도로명으로 검색" autocomplete="off" enterkeyhint="search" aria-label="수거처 검색">
+      <button class="clear" id="qClear" type="button" aria-label="검색어 지우기" hidden>×</button>
+    </div>
+
+    <nav class="tabs" id="tabs" role="tablist" aria-label="수거처 종류">
+      <button role="tab" data-kind="all" aria-selected="true">전체 <b data-count="all"></b></button>
+      <button role="tab" data-kind="box">수거함 <b data-count="box"></b></button>
+      <button role="tab" data-kind="health">보건소 <b data-count="health"></b></button>
+      <button role="tab" data-kind="pharmacy">약국 <b data-count="pharmacy"></b></button>
+    </nav>
+
+    <div class="filters">
+      <div class="chips" id="guChips" aria-label="구 선택"></div>
+      <div class="chips sub" id="subChips" hidden></div>
+    </div>
+
+    <div class="list-head">
+      <span id="resultCount"></span>
+      <span class="list-tools">
+      <button class="sort-btn" id="nearBtn" type="button">
+        <i class="ph ph-crosshair" aria-hidden="true"></i>
+        <span>내 주변 순</span>
+      </button>
+      </span>
+    </div>
+
+    <ol class="list" id="list" aria-live="polite"></ol>
+
+    <section class="detail" id="detail" hidden aria-label="수거처 상세"></section>
+  </aside>
+
+  <main class="map-wrap">
+    <div id="map" role="application" aria-label="수원시 수거처 지도"></div>
+    <div class="legend" id="legend" aria-label="지도 범례"></div>
+    <button class="locate" id="locateBtn" type="button" aria-label="내 위치로 이동"><i class="ph-fill ph-navigation-arrow" aria-hidden="true"></i>
+    </button>
+  </main>
+
+  <button class="view-toggle" id="viewToggle" type="button">
+    <span data-when="map">목록 보기</span><span data-when="list">지도 보기</span>
+  </button>
+</div>
+</section>
+
+<section class="sec sec-src" id="data">
+  <div class="wrap">
+    <div class="sec-title">
+      <p class="num">04</p>
+      <h2>출처</h2>
+      <p class="desc">이 사이트의 수거처 정보와 안내는 아래 공개 자료를 바탕으로 만들었어요. 운영 여부나 위치가 바뀌었을 수 있으니 방문 전에 전화로 확인하세요.</p>
+    </div>
+    <article class="d-block srcs">
+      <ul class="src-list">
+          <li><a href="https://www.data.go.kr/data/15129445/standard.do" target="_blank" rel="noopener">전국폐의약품수거함표준데이터 (수원시)</a><span>공공데이터포털 · 기준일 <em data-meta="boxDate"></em></span></li>
+          <li><span class="t">수원시 폐의약품 수거처 목록</span><span>약국 10곳 · 팔달구보건소 · 일반의약품/마약류 수거 협력 여부</span></li>
+          <li><a href="https://health.suwon.go.kr/board_view.asp?bd_gubn=1&amp;no=592&amp;page_code=sub060901" target="_blank" rel="noopener">수원시 폐의약품 처리 관련 안내</a><span>수원시보건소 · 2024.06.03</span></li>
+          <li><a href="https://paldal.suwon.go.kr/bbsplus/view.asp?bd_gubn=20&amp;code=tbl_bbs_sub200510&amp;no=MTU2OTYg&amp;page=3" target="_blank" rel="noopener">올바른 분리배출, 재활용 꿀팁 공유</a><span>매교동 · 2024.11.13</span></li>
+          <li><a href="https://ksun.suwon.go.kr/bbsplus/vw.asp?bd_gubn=1&amp;code=tbl_bbs_dong_gumho&amp;no=2533&amp;page=10" target="_blank" rel="noopener">호매실동 폐의약품 수거함 위치 안내</a><span>호매실동 · 2024.10.21</span></li>
+          <li><a href="https://yt.suwon.go.kr/_bbsplus/view.asp?bd_gubn=1&amp;code=tbl_bbs_sub150301&amp;no=MTQ2MCAg&amp;page=20" target="_blank" rel="noopener">영통2동 관내 폐의약품 수거함 설치 공고</a><span>영통2동 · 2024.10.23 · 설치장소 엑셀 첨부</span></li>
+          <li><a href="https://paldal.suwon.go.kr/bbsplus/view.asp?bd_gubn=20&amp;code=tbl_bbs_sub200510&amp;no=MTU3MDAg&amp;page=8" target="_blank" rel="noopener">매산동 폐의약품 수거함 위치 안내</a><span>매산동 · 2024.11.13</span></li>
+          <li><a href="https://ksun.suwon.go.kr/bbsplus/vw.asp?code=tbl_bbs_dong_gwonseon1&amp;no=1657&amp;bd_gubn=1&amp;page=3" target="_blank" rel="noopener">권선1동 공동주택 폐의약품 수거함 위치 안내</a><span>권선1동 · 2024.10.16</span></li>
+          <li><a href="https://jangan.suwon.go.kr/bbsplus/vw.asp?bd_gubn=&amp;code=tbl_bbs_notice&amp;no=MzIwNTYg&amp;page=2" target="_blank" rel="noopener">공동주택 폐의약품 수거함 설치 알림</a><span>송죽동 · 2024.12.11</span></li>
+          <li><a href="https://arisu.seoul.go.kr/home/sub?dsn=1782201513-785-957&amp;menukey=7729&amp;mode=view" target="_blank" rel="noopener">상수도 계통에서 잔류의약물질 검출 및 인체 위해성 평가에 의한 관리방안 연구</a><span>서울물연구원 · 2025년 연구, 2026.06.23 게시</span></li>
+          <li><a href="https://www.nier.go.kr/common/kor/board/comBbsDetail.do?bbsNo=575&amp;menuNo=12007&amp;pstNo=39415" target="_blank" rel="noopener">미량오염물질로부터 우리의 미래환경을 지킨다</a><span>국립환경과학원 · 2026.10.08</span></li>
+          <li><a href="https://file.newswire.co.kr/modules/download/downloadNewsFiles.php?newsid=1015722&amp;no=9742" target="_blank" rel="noopener">폐의약품 분리배출에 관한 인식·행동 설문조사 결과보고서</a><span>환경재단 · 2025.05~06 조사</span></li>
+          <li><a href="https://mcee.go.kr/home/web/board/read.do?boardId=1699950&amp;boardMasterId=943&amp;menuId=10600" target="_blank" rel="noopener">(설명) 폐의약품 수거량은 지속적으로 증가하고 있습니다</a><span>환경부 · 2024.09.24</span></li>
+          <li><a href="https://news.seoul.go.kr/env/archives/564807" target="_blank" rel="noopener">폐의약품 수거함 위치, 이젠 약국 내 QR 스티커로 쉽게 찾으세요!</a><span>서울특별시 · 2025.09.30</span></li>
+          <li><a href="https://www.geomdan.go.kr/clinic/bbs/bbsMsgDetail.do?bcd=health_news&amp;msg_seq=2923" target="_blank" rel="noopener">가정내 폐의약품 배출장소 및 분리·배출 방법 안내</a><span>인천 검단구보건소 · 2026.08.09</span></li>
+          <li><a href="https://www.busan.go.kr/depart/abnotice09/1635326" target="_blank" rel="noopener">폐의약품 수거함 위치 및 참여약국 등 현황 안내</a><span>부산광역시 · 2026.05.11</span></li>
+          <li><a href="https://www.gjcity.go.kr/depart/contents.do?mId=0901010600" target="_blank" rel="noopener">폐의약품 배출 및 처리 안내</a><span>경기 광주시 · 2026.11.16 수정</span></li>
+          <li><a href="https://www.donggu.go.kr/dg/kor/article/noticeDong10/143619" target="_blank" rel="noopener">폐의약품 배출요령</a><span>대전 동구 용전동 · 2026.10.07</span></li>
+          <li><a href="https://weekly.khan.co.kr/article/202511260600061" target="_blank" rel="noopener">안 먹는 약, 우체통에 넣어주세요</a><span>주간경향 · 2025.11.26 · 우체통 회수 참여 지역 관련</span></li>
+          <li><a href="https://wedocs.unep.org/handle/20.500.11822/50095" target="_blank" rel="noopener">Pharmaceuticals in the environment: pathways, hotspots and priorities for action</a><span>UNEP · 2026 · 환경 유입 경로·생태계 영향 참고자료</span></li>
+          <li><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a><span>배경지도</span></li>
+          <li><a href="https://github.com/vuski/admdongkor" target="_blank" rel="noopener">행정동 경계 (admdongkor ver20261001)</a><span>통계청 원자료 · CC BY 4.0</span></li>
+        </ul>
+    </article>
+  </div>
+</section>
+
+<section class="band band-cta">
+  <div class="wrap band-inner">
+    <div>
+      <h2>이번 주말,<br>약 서랍 정리 어때요?</h2>
+      <p>수원시 수거함·보건소·약국 <b data-stat="all"></b>곳을 지도에서 바로 찾을 수 있어요.</p>
+      <a class="pill pill-sun" href="#finder">수거처 찾기</a>
+    </div>
+    <img class="cta-art" src="img/bin.svg" alt="">
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <nav class="foot-nav"><a href="#why">왜 따로 버릴까</a><a href="#guide">배출 방법</a><a href="#finder">수거처 지도</a><a href="#data">출처</a></nav>
+    <a class="foot-logo" href="#top">2026<br>수원시 폐의약품 수거지도</a>
+    <p class="foot-info">기아ECO챌린지 서포터즈 4조 SEED | 지역사회 환경 프로젝트<br>자료 출처는 <a href="#data">출처</a>에서 확인하세요</p>
+  </div>
+</footer>
+
+<a class="float-cta" id="floatCta" href="#finder"><i class="ph-fill ph-map-pin"></i>수거처 찾기</a>
+
+<dialog class="info" id="info">
+  <form method="dialog" class="info-inner">
+    <header>
+      <h2>자료와 안내</h2>
+      <button class="icon-btn" value="close" aria-label="닫기">×</button>
+    </header>
+
+    <h3>이 지도에 담긴 곳</h3>
+    <ul class="kinds">
+      <li><i class="k k-box"></i><div><b>수거함</b> 행정복지센터와 공동주택(아파트)에 설치된 폐의약품 수거함. 공동주택 수거함은 해당 단지 주민 이용이 원칙인 경우가 많아요.</div></li>
+      <li><i class="k k-health"></i><div><b>보건소</b> 구 보건소. 방문 전 운영 시간을 확인하세요.</div></li>
+      <li><i class="k k-pharmacy"></i><div><b>약국</b> 폐의약품 수거에 협력하는 약국. 일반의약품까지 받는 곳과 마약류만 받는 곳이 나뉘어 있어요.</div></li>
+    </ul>
+
+    <h3>정보 상태</h3>
+    <p>지도 정보는 공개 자료를 옮긴 거예요. 운영 여부나 위치가 바뀌었을 수 있으니 방문 전에 전화로 확인하세요.</p>
+
+    <h3>출처</h3>
+    <p>이 사이트가 참고한 자료는 <a href="#data" id="toData">출처</a>에 모아 뒀어요.</p>
+
+    <p class="credit">2026 기아ECO챌린지 서포터즈 4조 SEED · 지역사회 환경 프로젝트</p>
+  </form>
+</dialog>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="data/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

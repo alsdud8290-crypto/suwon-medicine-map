@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 240" width="306" height="240"><defs><filter id="g" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.26 0" result="na"/><feComposite in="na" in2="SourceGraphic" operator="in" result="ni"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ni"/></feMerge></filter>
+<clipPath id="paper"><path d="M24 40 L110 26 L196 40 L282 26 L282 206 L196 220 L110 206 L24 220 Z"/></clipPath></defs><g filter="url(#g)">
+<!-- 접힌 종이 지도 -->
+<path d="M24 40 L110 26 L110 206 L24 220 Z" fill="#fff6dc"/>
+<path d="M110 26 L196 40 L196 220 L110 206 Z" fill="#f1e2bd"/>
+<path d="M196 40 L282 26 L282 206 L196 220 Z" fill="#fff6dc"/>
+<g clip-path="url(#paper)">
+  <!-- 단순화한 수원 4개 구 -->
+  <path d="M96 78 C104 52 140 46 158 60 C172 70 170 92 160 104 C146 116 116 118 102 108 C92 100 90 90 96 78 Z" fill="#c9dbfa"/>
+  <path d="M60 128 C66 108 90 102 110 112 C128 122 136 140 132 160 C128 182 104 194 82 188 C60 182 52 150 60 128 Z" fill="#fdd9b0"/>
+  <path d="M120 112 C134 104 156 106 168 116 C176 126 172 142 158 148 C144 154 126 150 120 138 C116 130 116 120 120 112 Z" fill="#f4cbe6"/>
+  <path d="M170 82 C190 72 220 80 230 104 C240 130 232 166 210 178 C190 188 168 176 162 156 C158 140 170 132 176 118 C180 104 162 92 170 82 Z" fill="#c4ebd5"/>
+  <!-- 구 사이 흰 경계 -->
+  <path d="M102 108 C116 118 146 116 160 104" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M110 112 C122 120 128 132 132 160" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M160 104 C168 114 172 128 168 140" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- 작은 수거함 점 -->
+  <g fill="#13492d">
+    <circle cx="120" cy="80" r="3.4"/><circle cx="138" cy="70" r="3.4"/><circle cx="84" cy="150" r="3.4"/>
+    <circle cx="100" cy="170" r="3.4"/><circle cx="146" cy="132" r="3.4"/><circle cx="204" cy="124" r="3.4"/>
+    <circle cx="214" cy="152" r="3.4"/><circle cx="190" cy="100" r="3.4"/><circle cx="74" cy="132" r="3.4"/>
+  </g>
+  <circle cx="112" cy="140" r="5" fill="#fff" stroke="#2e8f5c" stroke-width="2.4"/>
+  <circle cx="196" cy="166" r="5" fill="#fff" stroke="#2e8f5c" stroke-width="2.4"/>
+  <!-- 점선 길 -->
+  <path d="M40 196 C70 190 92 200 116 186 C138 172 150 158 160 140" stroke="#13492d" stroke-width="3" fill="none" stroke-dasharray="2 7" stroke-linecap="round"/>
+</g>
+<!-- 접힌 선 -->
+<path d="M110 26 L110 206 M196 40 L196 220" stroke="#d8c493" stroke-width="2"/>
+<path d="M24 40 L110 26 L196 40 L282 26 L282 206 L196 220 L110 206 L24 220 Z" fill="none" stroke="#c9b27e" stroke-width="2.5" stroke-linejoin="round"/>
+<!-- 큰 위치 핀 -->
+<ellipse cx="164" cy="146" rx="20" ry="6" fill="#13492d" opacity=".18"/>
+<path d="M164 144 C164 144 136 112 136 92 A28 28 0 0 1 192 92 C192 112 164 144 164 144 Z" fill="#13492d"/>
+<path d="M150 74 A22 22 0 0 1 176 70" stroke="#2e8f5c" stroke-width="5" fill="none" stroke-linecap="round"/>
+<circle cx="164" cy="92" r="15" fill="#fff6dc"/>
+<g transform="translate(164 92) rotate(-35)"><path d="M0 -6 H8 A6 6 0 0 1 8 6 H0 Z" fill="#fff"/><path d="M0 -6 H-8 A6 6 0 0 0 -8 6 H0 Z" fill="#e0484d"/><path d="M-14 -6 H14" stroke="none"/></g>
+<circle cx="164" cy="92" r="15" fill="none" stroke="#e6d2a2" stroke-width="1.5"/>
+</g></svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="420" height="300"><defs><filter id="g" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.28 0" result="na"/><feComposite in="na" in2="SourceGraphic" operator="in" result="ni"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ni"/></feMerge></filter></defs><g filter="url(#g)">
+<rect width="420" height="300" rx="10" fill="#cfe9f3"/>
+<path d="M0 120c60-18 120 18 210 0s150-18 210 0v180H0z" fill="#9fd3e6"/>
+<path d="M0 170c70-16 140 16 210 0s140-16 210 0v130H0z" fill="#7cc0da"/>
+<path d="M0 230c60-12 120 12 210 0s150-12 210 0v70H0z" fill="#5aa9c9"/>
+<path d="M30 140c20-6 40-6 60 0M240 120c24-6 48-6 72 0M120 196c24-6 48-6 72 0M300 214c20-5 40-5 60 0" stroke="#e8f6fb" stroke-width="4" fill="none" stroke-linecap="round"/>
+<rect x="0" y="40" width="120" height="26" fill="#8d9aa6"/>
+<rect x="104" y="30" width="26" height="46" rx="4" fill="#6f7d8a"/>
+<path d="M130 60c10 0 16 14 16 34" stroke="#9fd3e6" stroke-width="9" fill="none" stroke-linecap="round"/>
+<g transform="translate(250 170)"><path d="M0 0c20-22 58-22 78 0-20 22-58 22-78 0z" fill="#f08a4b"/><path d="M76 0l22-16v32z" fill="#e06d2c"/><circle cx="16" cy="-3" r="4" fill="#3a2a20"/><path d="M30-12c8 6 8 18 0 24" stroke="#ffb27f" stroke-width="3" fill="none"/></g>
+<g transform="translate(90 205) rotate(-20)"><path d="M0 0h24a12 12 0 0 1 0 24H0z" fill="#fff1d2"/><path d="M0 0h-24a12 12 0 0 0 0 24H0z" fill="#2e8f5c"/></g>
+<circle cx="190" cy="238" r="9" fill="#fff"/><circle cx="350" cy="250" r="7" fill="#ffd25a"/>
+<path d="M330 120c-4-22 6-40 24-48 4 22-6 40-24 48z" fill="#3b9a62"/><path d="M342 140c0-30 6-52 12-64" stroke="#1f6e45" stroke-width="3" fill="none"/>
+</g></svg>

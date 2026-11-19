@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" width="240" height="260"><defs><filter id="g" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.28 0" result="na"/><feComposite in="na" in2="SourceGraphic" operator="in" result="ni"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ni"/></feMerge></filter></defs><g filter="url(#g)">
+<rect x="30" y="70" width="180" height="170" rx="14" fill="#1f6e45"/>
+<rect x="30" y="70" width="180" height="40" rx="14" fill="#2e8f5c"/>
+<rect x="70" y="84" width="100" height="12" rx="6" fill="#0f3f27"/>
+<rect x="58" y="128" width="124" height="80" rx="10" fill="#fff3d8"/>
+<g transform="translate(120 160) rotate(-30)"><path d="M0-12h22a12 12 0 0 1 0 24H0z" fill="#fff"/><path d="M0-12h-22a12 12 0 0 0 0 24H0z" fill="#e0484d"/></g>
+<path d="M78 196h84" stroke="#e1c99a" stroke-width="5" stroke-linecap="round"/>
+<g transform="translate(78 40) rotate(-24)"><path d="M0-10h18a10 10 0 0 1 0 20H0z" fill="#fff1d2"/><path d="M0-10h-18a10 10 0 0 0 0 20H0z" fill="#2e8f5c"/></g>
+<circle cx="150" cy="34" r="11" fill="#ffd25a"/><circle cx="182" cy="52" r="8" fill="#fff"/>
+<rect x="30" y="226" width="180" height="14" rx="7" fill="#174f33"/>
+</g></svg>
