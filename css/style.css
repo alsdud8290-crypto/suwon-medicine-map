@@ -647,18 +647,20 @@ dialog.info::backdrop { background: rgba(14,47,31,.45); }
   .hero-search input { height: 44px; font-size: 15px; }
   .hero-search button { height: 44px; padding: 0 18px; }
   .quick button { height: 36px; padding: 0 13px; font-size: 13.5px; }
-  .hero-art { height: 270px; margin: 32px -8px 18px; }
-  .hero-art { height: 290px; }
-  .a-map { width: 180px; }
+  .hero-art { height: 290px; margin: 28px 0 18px; }
+  /* 폰: 그림이 화면 끝에서 잘리거나 서로 겹치지 않게 다시 배치하고, 흐려 보이는 그림자 필터는 빼요 */
+  .hero-art .a, .a-map { filter: none; }
+  .grid-paper { left: 6%; right: 6%; top: 13%; bottom: 9%; box-shadow: 0 10px 24px rgba(80,50,0,.10); }
+  .a-map { width: 176px; }
   .map-tag { height: 34px; padding: 0 13px; font-size: 13px; bottom: -14px; }
-  .a-capsule { width: 96px; left: -3%; top: 3%; }
-  .a-syrup { width: 70px; right: 6%; top: 22%; }
-  .a-tube { width: 112px; left: -3%; bottom: 6%; }
-  .a-powder { width: 70px; left: 74%; bottom: 4%; }
-  .a-pill1 { width: 32px; left: 2%; bottom: 40%; }
-  .a-pill2 { width: 36px; right: 4%; bottom: 14%; }
-  .a-pill3 { width: 26px; }
-  .a-leaf { width: 70px; right: 18%; }
+  .a-capsule { width: 80px; left: 2%; top: 2%; }
+  .a-pill3 { width: 22px; right: 30%; top: 3%; }
+  .a-syrup { width: 54px; right: 3%; top: 15%; }
+  .a-pill1 { width: 26px; left: 3%; bottom: 44%; }
+  .a-tube { width: 96px; left: 3%; bottom: 6%; }
+  .a-pill2 { width: 28px; right: 3%; bottom: 40%; }
+  .a-powder { width: 58px; right: 5%; bottom: 4%; left: auto; }
+  .a-leaf { width: 50px; right: 26%; bottom: 3%; }
   .tag-label { font-size: 12px; padding: 1px 8px 2px 14px; }
   .tag-label::after { display: none; }
   .t-capsule { left: 2%; top: 40%; }
