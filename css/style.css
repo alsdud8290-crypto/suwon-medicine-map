@@ -301,7 +301,9 @@ cite { font-style: normal; font-size: 12px; color: var(--text-3); margin-left: 4
 .tile-art { position: relative; aspect-ratio: 4 / 3.2; border-radius: 22px; margin-bottom: 18px; overflow: hidden; }
 .tile-art img { position: absolute; inset: 0; margin: auto; max-width: 66%; max-height: 72%; filter: drop-shadow(0 10px 12px rgba(60,40,0,.18)); transition: transform .3s; }
 .tile-art.t3 img { bottom: 9%; } /* 병은 아래가 무거워 보여서 살짝 위로 */
-.tiles li:hover .tile-art img { transform: rotate(-4deg) scale(1.05); }
+@media (hover: hover) and (pointer: fine) { .tiles li:hover .tile-art img { transform: rotate(-4deg) scale(1.05); } }
+.tiles li { -webkit-tap-highlight-color: transparent; }
+.tile-art img { pointer-events: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 .t1 { background: var(--leaf); }
 .t2 { background: #fde6a8; }
 .t3 { background: #f6dac4; }
@@ -698,7 +700,7 @@ dialog.info::backdrop { background: rgba(14,47,31,.45); }
   .reasons, .trend { padding: 22px 20px; }
   .tiles { gap: 22px 14px; }
   .tile-art { border-radius: 18px; margin-bottom: 12px; }
-  .tile-art.t3 img { max-height: 66%; bottom: 12%; }
+  .tile-art.t3 img { max-height: 66%; bottom: 8%; }
   .tiles h3 { font-size: 16px; }
   .tiles p { font-size: 13.5px; }
   .guide-tips { grid-template-columns: 1fr; margin-top: 28px; }
