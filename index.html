@@ -14,6 +14,7 @@
 <meta property="og:description" content="서랍 속 안 먹는 약, 어디에 버릴까요? 수원시 수거함·보건소·약국 위치와 배출 방법을 찾아보세요.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Lora:ital,wght@1,600&amp;display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
@@ -22,6 +23,26 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="css/style.css?v=202611200037">
+<style>html.wf body{opacity:0}body{transition:opacity .25s ease}</style>
+<script>
+/* 글꼴이 다 받아질 때까지 잠깐 숨겨서, 처음에 기본 글꼴로 보였다가 바뀌는 깜빡임을 없애요 (최대 2초) */
+(function () {
+  var d = document.documentElement;
+  if (!document.fonts || !document.fonts.load) return;
+  d.classList.add('wf');
+  var shown = false;
+  function show() { if (!shown) { shown = true; d.classList.remove('wf'); } }
+  setTimeout(show, 2000);
+  var first = Promise.all(['700 1em Recipekorea', '400 1em "Pretendard Variable"', '800 1em "Pretendard Variable"', '700 1em Montserrat', '1em Phosphor', '1em Phosphor-Fill', '1em Phosphor-Bold']
+    .map(function (f) { return document.fonts.load(f, '가A'); }));
+  var rest = new Promise(function (r) {
+    document.addEventListener('DOMContentLoaded', function () {
+      requestAnimationFrame(function () { requestAnimationFrame(function () { document.fonts.ready.then(r, r); }); });
+    });
+  });
+  Promise.all([first, rest]).then(show, show);
+})();
+</script>
 </head>
 <body>
 
@@ -82,10 +103,6 @@
       <img class="a a-pill2" src="img/pill-yellow.svg" alt="">
       <img class="a a-pill3" src="img/pill-white.svg" alt="">
       <img class="a a-leaf" src="img/leaf.svg" alt="">
-      <span class="tag-label t-capsule" aria-hidden="true">Capsule</span>
-      <span class="tag-label t-syrup" aria-hidden="true">Syrup</span>
-      <span class="tag-label t-tube" aria-hidden="true">Ointment</span>
-      <span class="tag-label t-powder" aria-hidden="true">Powder</span>
     </div>
 
     <p class="hero-statement">가까운 수거함에 넣기만 해도 약 성분이 하천으로 흘러가는 걸 막을 수 있어요.</p>
