@@ -37,6 +37,8 @@ GitHub Pages로 공개돼 있어요.
 
 수정한 뒤 다시 올릴 때는 `website` 폴더에서 아래처럼 실행해요. 1~2분 뒤 사이트에 반영돼요.
 
+`css/style.css`, `js/app.js`, `data/data.js`를 고쳤다면 `index.html`에서 그 파일 주소 뒤의 `?v=숫자`도 바꿔 주세요. 안 바꾸면 휴대폰이 예전 파일을 최대 10분 동안 계속 써요.
+
 ```
 git add -A
 git commit -m "수정 내용"
