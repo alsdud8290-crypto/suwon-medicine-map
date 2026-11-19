@@ -142,6 +142,25 @@
   map.on('zoomend', function () { dongLayer.setStyle(function (f) { return dongStyle(f.properties.gu); }); });
   var cityBounds = dongLayer.getBounds();
   map.fitBounds(cityBounds, { padding: [10, 10] });
+
+  // 폰처럼 화면 배율이 높으면, 지도 상자가 픽셀 사이(예: 0.14px)에 걸릴 때 타일 이음매에 가는 줄이 보여요.
+  // 지도 상자를 화면 픽셀에 딱 맞게 아주 살짝 옮겨요. 페이지 높이가 바뀔 때마다 다시 맞춰요.
+  (function snapMapToPixels() {
+    var el = document.getElementById('map');
+    function snap() {
+      el.style.transform = '';
+      var r = el.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+      var fx = ((r.left + window.scrollX) * dpr) % 1, fy = ((r.top + window.scrollY) * dpr) % 1;
+      if (fx < 0.01 && fy < 0.01) return;
+      el.style.transform = 'translate(' + (-fx / dpr) + 'px,' + (-fy / dpr) + 'px)';
+    }
+    var queued = false;
+    function queue() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; snap(); }); }
+    snap();
+    window.addEventListener('resize', queue);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(queue);
+    if (window.ResizeObserver) { var ro = new ResizeObserver(queue); ro.observe(document.body); ro.observe(el); }
+  })();
   map.setMaxBounds(cityBounds.pad(0.6));
 
   // 마커 — 물방울 핀 아이콘 + 멀리서 볼 때는 수거함을 묶어서(클러스터) 표시
@@ -601,6 +620,16 @@
     });
 
   })();
+
+  // 배출 방법 그림: 폰에서 누르면 잠깐 기울었다 돌아와요 (컴퓨터는 CSS hover)
+  document.querySelectorAll('.tiles li').forEach(function (li) {
+    li.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse') return;
+      clearTimeout(li._tapTimer);
+      li.classList.add('tap');
+      li._tapTimer = setTimeout(function () { li.classList.remove('tap'); }, 450);
+    });
+  });
 
   /* ===== 랜딩(상단 소개) 연결 ===== */
   function goFinder() {
