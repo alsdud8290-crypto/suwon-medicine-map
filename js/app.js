@@ -631,6 +631,11 @@
     });
   });
 
+  // '출처'로 가는 링크를 누르면 접힌 출처 목록을 펼쳐요
+  document.querySelectorAll('a[href="#data"]').forEach(function (a) {
+    a.addEventListener('click', function () { var d = document.querySelector('.src-fold'); if (d) d.open = true; });
+  });
+
   /* ===== 랜딩(상단 소개) 연결 ===== */
   function goFinder() {
     var gap = isMobile() ? 0 : 24;

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-<link rel="stylesheet" href="css/style.css?v=202611200045">
+<link rel="stylesheet" href="css/style.css?v=202611201710">
 <style>html.wf body{opacity:0}body{transition:opacity .25s ease}</style>
 <script>
 /* 글꼴이 다 받아질 때까지 잠깐 숨겨서, 처음에 기본 글꼴로 보였다가 바뀌는 깜빡임을 없애요 (최대 2초) */
@@ -361,7 +361,9 @@
       <h2>출처</h2>
       <p class="desc">이 사이트의 수거처 정보와 안내는 아래 공개 자료를 바탕으로 만들었어요. 운영 여부나 위치가 바뀌었을 수 있으니 방문 전에 전화로 확인하세요.</p>
     </div>
-    <article class="d-block srcs">
+    <details class="compare src-fold">
+      <summary><b>출처 자료 보기</b><span>공공데이터, 수원시·각 지역 안내 등 22건</span></summary>
+      <div class="src-body">
       <ul class="src-list">
           <li><a href="https://www.data.go.kr/data/15129445/standard.do" target="_blank" rel="noopener">전국폐의약품수거함표준데이터 (수원시)</a><span>공공데이터포털 · 기준일 <em data-meta="boxDate"></em></span></li>
           <li><span class="t">수원시 폐의약품 수거처 목록</span><span>약국 10곳 · 팔달구보건소 · 일반의약품/마약류 수거 협력 여부</span></li>
@@ -386,7 +388,8 @@
           <li><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a><span>배경지도</span></li>
           <li><a href="https://github.com/vuski/admdongkor" target="_blank" rel="noopener">행정동 경계 (admdongkor ver20261001)</a><span>통계청 원자료 · CC BY 4.0</span></li>
         </ul>
-    </article>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -438,7 +441,7 @@
 <script>window.L_DISABLE_3D = true; /* 폰에서 지도 타일 이음매에 가는 줄이 생기지 않게 */</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script src="data/data.js?v=202611200045"></script>
-<script src="js/app.js?v=202611200045"></script>
+<script src="data/data.js?v=202611201710"></script>
+<script src="js/app.js?v=202611201710"></script>
 </body>
 </html>

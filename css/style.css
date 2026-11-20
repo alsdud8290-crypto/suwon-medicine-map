@@ -782,3 +782,9 @@ dialog.info::backdrop { background: rgba(14,47,31,.45); }
 .compare tr.me th { background: #fff6d6; }
 .sec-src .sec-title { margin-bottom: 28px; }
 @media (max-width: 760px) { .compare-tip { margin: 0 12px 12px; font-size: 14px; } .compare table { min-width: 760px; } .compare tbody th, .compare thead th:first-child { box-shadow: 6px 0 8px -6px rgba(19,73,45,.25); } }
+
+/* 출처: 접는 상자 */
+.src-fold { margin-top: 0; }
+.src-fold .src-body { padding: 4px 26px 22px; }
+@media (max-width: 760px) { .src-fold .src-body { padding: 2px 20px 18px; } }
+.src-fold .src-list li, .src-fold .src-list li:first-child { border-top: 0; border-bottom: 1px solid var(--line); padding: 10px 0; }
